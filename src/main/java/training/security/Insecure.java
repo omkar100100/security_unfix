@@ -12,19 +12,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.logging.Logger;
 
 public class Insecure {
   
-	private static final Logger LOGGER = Logger.getLogger(Insecure.class.getName());
-   
+   private static final Logger LOGGER = Logger.getLogger(Insecure.class.getName());
    public void badFunction(HttpServletRequest request) throws IOException {
 	  
 	
@@ -42,8 +38,8 @@ public class Insecure {
   }
 
   public String taintedSQL(HttpServletRequest request, Connection connection)  {
+
     String user = request.getParameter("user");
-    
     String query = "SELECT userid FROM users WHERE username = ?";
     String userId =null;
     PreparedStatement pstmt = null;
